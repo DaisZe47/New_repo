@@ -1,0 +1,7 @@
+{
+  "name": "parkingapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
