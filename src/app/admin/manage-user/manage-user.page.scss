@@ -1,0 +1,28 @@
+
+
+    
+
+
+ion-content{
+    --background:white;
+    position: relative;
+    ion-toolbar{
+        --background:transparent;
+        box-shadow: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+    
+
+    .container{
+        position: relative;
+        height: 100%;
+
+        
+
+
+       
+    }
+}

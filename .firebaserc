@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "parking-app-8ab79": {
+      "hosting": {
+        "app": [
+          "parking-app-8ab79"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "parking-app-8ab79"
+  }
+}

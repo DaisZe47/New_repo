@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="ion-no-border" slot="start">
+      <ion-back-button defaultHref="admin-menu"></ion-back-button>
+      <ion-title>Manage Users</ion-title>
+    </ion-buttons>
+    <!-- <ion-title>My saved Recipes</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="">
+  
+  <div class="image-background"></div>
+ <div class="container">
+
+  <ion-list>
+    <ion-item *ngFor="let user of data">
+
+      <ion-label>
+        <h2>{{user.name}}</h2>
+        <p>{{user.email}}</p>
+        <p>{{user.sr_code}}</p>
+        <p>{{user.role}}</p>
+
+      </ion-label>
+
+      <ion-button (click)="deleteAccount(user.id)" slot="end" color="danger">Delete account</ion-button>
+    </ion-item>
+    
+  </ion-list>
+
+ </div>
+</ion-content>

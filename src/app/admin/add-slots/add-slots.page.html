@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="ion-no-border" slot="start">
+      <ion-back-button defaultHref="admin-menu"></ion-back-button>
+      <ion-title>Choose parking</ion-title>
+    </ion-buttons>
+    <!-- <ion-title>My saved Recipes</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="">
+  
+  <div class="image-background"></div>
+
+  
+ <div class="container">
+  
+
+  <ion-list>
+    <ion-item *ngFor="let parking of data"(click)="open(parking)">
+
+      <ion-avatar slot="start">
+        <img src="{{parking.image}}" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{parking.parking_name}}</h2>
+       
+        <p>{{parking.description}}</p>
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+ </div>
+
+
+
+
+ <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>{{filteredData.parking_name}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label>
+          Labels 
+          <p>STEERHUB=C</p>
+          <p>CIT=B</p>
+          <p>CEAFA=A</p>
+
+        </ion-label>
+
+        <ion-label>Total Slots: {{count}}</ion-label>
+      </ion-item>
+
+     
+      <ion-item>
+
+        <ion-label>Input Slotname</ion-label>
+        
+        <ion-input placeholder="Slotname" name="slotname" [(ngModel)]="slotname" type="text"></ion-input>
+        
+      </ion-item>
+      <ion-item>
+
+        <ion-label>Status</ion-label>
+        
+        <ion-label>Available</ion-label>
+        
+      </ion-item>
+      
+    </ion-content>
+  </ng-template>
+</ion-modal>
+</ion-content>

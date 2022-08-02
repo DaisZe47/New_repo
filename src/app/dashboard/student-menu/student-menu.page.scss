@@ -1,0 +1,47 @@
+header{
+    position: relative;
+    height: 200px;
+
+    .square{
+        background: linear-gradient(to right, var(--ion-color-danger), #ed576b);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+    }
+    .text-wrapper{
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        line-height: .5;
+    }
+
+}
+
+ion-content{
+    ion-list{
+
+
+        ion-item{
+            gap: 20px;
+            ion-label{
+                margin-left: 20px;
+            }
+
+
+            &.active{
+                    
+                --background: #d6d6d6;
+                border-right:5px solid var(--ion-color-danger) ;
+
+            }
+        }
+    }
+}

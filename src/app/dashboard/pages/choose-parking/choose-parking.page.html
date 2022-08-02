@@ -1,0 +1,97 @@
+<ion-toolbar
+  class="ion-margin"
+  [scrollEvents]="true"
+  (ionScrollStart)="logScrollStart()"
+>
+  <ion-buttons class="ion-no-border" slot="start">
+    <ion-back-button style="display: block" (click)="back()"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Choose Parking Space</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="ion-padding-top">
+  <div class="main-container">
+    <div class="user-container ion-padding-horizontal">
+      <ion-title>{{title.parking_name}} Parking Lot</ion-title>
+    </div>
+
+    <div class="content ion-padding">
+      <div class="image-background"></div>
+
+      <div class="container ion-margin-top">
+        <div class="slots">
+          <div class="img">
+            <img src="{{title.image}}" alt="" />
+          </div>
+          <!-- <div class="form-control">
+            <input type="file" (change)="choosefile($event)">
+
+            <ion-button (click)="upload()">Upload</ion-button>
+
+          </div> -->
+          <div class="heading" class="ion-padding-vertical" style="width: 100%">
+            <h3>Available Slots ({{available.length}})</h3>
+          </div>
+          <div class="grid">
+            <button
+              type="button"
+              class="slots-button"
+              *ngFor="let slots of parking_slots"
+              (click)="onClick(slots)"
+              id="open-modal"
+            >
+              <span>{{slots.slotname}}</span>
+              <br />
+              <span
+                *ngIf="slots.status=='available'"
+                style="color: var(--ion-color-success)"
+                >{{slots.status}}</span
+              >
+              <span
+                *ngIf="slots.status!='available'"
+                style="color: var(--ion-color-danger)"
+                >{{slots.status}}</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>{{slot}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label
+            >Occupation: <span *ngIf="occupation != 'none' ">{{occupation}}</span> 
+          
+            
+            <span *ngIf="occupation == user">(You)</span></ion-label
+          >
+
+          <ion-label position="stacked"
+            >Choose action for {{slot}} slot:</ion-label
+          >
+          <ion-select placeholder="Action" name="action" [(ngModel)]="action">
+            <ion-select-option value="occupied">Occupy</ion-select-option>
+            <ion-select-option value="reserved">Reserve</ion-select-option>
+            <ion-select-option *ngIf="userData.role=='guard'" value="available">Available</ion-select-option>
+            
+          </ion-select>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

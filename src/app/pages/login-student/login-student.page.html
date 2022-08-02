@@ -1,0 +1,82 @@
+<ion-content [fullscreen]="true" class="">
+  <ion-toolbar>
+    <ion-buttons class="ion-no-border" slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-title>My saved Recipes</ion-title> -->
+  </ion-toolbar>
+  <div class="image-background"></div>
+  <div class="container">
+    <div class="login-form ">
+      <!-- <ion-card class="ion-padding"> -->
+      <header class="ion-padding">
+        <div class="icon">
+          <ion-icon
+            name="people-outline"
+            size="large"
+            color="success"
+          ></ion-icon>
+        </div>
+
+        <ion-card-title>User Login</ion-card-title>
+      </header>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item class="input">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input
+                [(ngModel)]="email"
+                name="srcode"
+                type="text"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="input">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input
+                #input
+                [(ngModel)]="password"
+                name="password"
+                type="password"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div class="ion-margin-bottom checkbox">
+              <ion-checkbox (click)="showPassword(input)"></ion-checkbox>
+              <ion-label>Show Password</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              (click)="login()"
+              expand="block"
+              type="submit"
+              color="danger"
+              class="ion-no-margin"
+              >Login</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- </ion-card> -->
+    </div>
+    <!-- <div class="ion-margin-top " style="width: 100%;display: flex; justify-content: center;">
+      <span>Don't have an account yet? <a routerLink="/signup" style="color:var(--ion-color-success); text-align: center;">Click here</a></span>
+      
+  
+    </div> -->
+  </div>
+</ion-content>

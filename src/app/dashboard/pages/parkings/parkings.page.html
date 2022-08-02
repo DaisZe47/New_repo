@@ -1,0 +1,52 @@
+<ion-toolbar class="ion-margin">
+  <ion-title class="text-white">Parkings</ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button class="text-white" menu="main-menu" ></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content [fullscreen]="true" class="ion-padding-top">
+  
+
+  <div class="main-container">
+    <div class="user-container ion-padding-horizontal">
+      <header class="ion-padding-horizontal ion-margin-bottom">
+        <div class="title">
+          <h3 class="text-white">Nearby Parking Lots</h3>
+         
+        </div>
+        
+      </header>
+      
+
+    </div>
+
+    <div class="content ion-padding">
+      <ion-toolbar >
+        <ion-searchbar animated></ion-searchbar>
+      </ion-toolbar>
+      
+
+      <div class="container ion-margin-top">
+
+        
+
+        <ion-list >
+          <ion-item   lines="none"  *ngFor="let space of parking_slots" (click)="navigate(space.id)">
+            <ion-card  class="parking-cards " >
+              <img class="round" src="{{space.image}}" height="100%" width="100" alt="">
+              <div class="card-content">
+                <h4>{{space.parking_name}} Parking Lot</h4>
+                <small>{{space.description}}</small>
+                <br>
+                <!-- <ion-label>10 Slots</ion-label> -->
+              </div>
+            </ion-card>
+
+          </ion-item>
+        </ion-list>
+        
+        
+      </div>
+    </div>
+  </div>
+</ion-content>
